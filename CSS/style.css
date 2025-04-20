@@ -1,0 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Mulish", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+}
+
+:root {
+  --main-color: #f26398;
+  --text-color: #fff;
+  --other-color: #212121;
+  --second-color: #f2ced8;
+  --bg-color: #111111;
+
+  --big-font: 4.5rem;
+  --h2-font: 2.6rem;
+  --p-font: 1.1rem;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0 10%;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  margin: 0 10%;
+  height: 70px;
+
+  background: transparent;
+}
+
+.logo {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.logo a {
+  color: var(--text-color);
+  font-size: 25px;
+  font-weight: 700;
+  padding: 0;
+}
+
+.logo i {
+  color: var(--main-color);
+}
+
+.logo span {
+  color: var(--main-color);
+  font-weight: 1000;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-list ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-list a {
+  margin: 0 20px;
+  color: var(--text-color);
+}
+
+#home {
+  color: var(--main-color);
+}
+
+.nav-list a:hover {
+  color: var(--main-color);
+}
+
+.nav i {
+  color: var(--main-color);
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.sr {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--main-color);
+  border-radius: 30px;
+  height: 30px;
+  padding: 10px;
+  background: var(--other-color);
+  box-shadow: 0 0 5px var(--second-color);
+}
+
+.search {
+  border: none;
+  background: none;
+  outline: none;
+  width: 0;
+  color: var(--text-color);
+  transition: 0.5s;
+}
+
+#nut {
+  transition: 0.5s;
+}
+
+.sr:hover .search {
+  width: 200px;
+}
+.sr:hover #nut i {
+  color: var(--text-color);
+}
+
+.menu {
+  display: none;
+}
+
+/* Nhiem vu 0 */
+/* Nhiem vu 1 */
+/* Nhiem vu 2 */
+/* Nhiem vu 3 */
