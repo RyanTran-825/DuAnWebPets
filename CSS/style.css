@@ -24,7 +24,7 @@
 body {
   background: var(--bg-color);
   color: var(--text-color);
-  margin: 0 10%;
+  padding: 0 10%;
 }
 
 header {
@@ -36,10 +36,10 @@ header {
   right: 0;
   left: 0;
   z-index: 1000;
-  margin: 0 10%;
-  height: 70px;
+  padding: 30px 10%;
+  /* height: 70px; */
 
-  background: transparent;
+  background-color: transparent;
 }
 
 .logo {
@@ -126,11 +126,98 @@ header {
   color: var(--text-color);
 }
 
+.nav a:hover i {
+  color: var(--text-color);
+}
+
 .menu {
   display: none;
 }
 
+header.sticky {
+  padding: 12px 10%;
+  background: var(--other-color);
+  transition: background 0.5s ease;
+}
+
 /* Nhiem vu 0 */
+.home {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 70px 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: appearSmooth 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes appearSmooth {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.left {
+  grid-column: 1 / span 1;
+}
+
+.left > h1 {
+  font-size: 58px;
+  font-weight: 900;
+  padding: 0 0 30px;
+  color: var(--text-color);
+}
+
+.left > h1 > span {
+  color: var(--main-color);
+}
+
+.image {
+  grid-column: 2 / span 1;
+}
+.image > img {
+  width: 500px;
+  filter: drop-shadow(20px 0px 7px rgba(242, 206, 216, 1));
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 12px;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  background-color: var(--other-color);
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn:hover {
+  background-color: var(--main-color);
+  color: white;
+  box-shadow: 0 0 5px var(--second-color);
+}
+
+.btn-1 {
+  color: var(--main-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-1:hover {
+  color: var(--text-color);
+}
+
 /* Nhiem vu 1 */
 /* Nhiem vu 2 */
 /* Nhiem vu 3 */
