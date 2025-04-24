@@ -219,5 +219,137 @@ header.sticky {
 }
 
 /* Nhiem vu 1 */
+
+
+.info-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+ 
+  border-radius: 10px;
+  margin-bottom: 90px;
+}
+
+.info-item {
+  padding: 50px 10px;
+  text-align: center;
+  
+  border-radius: 12px;
+  background-color: var(--other-color); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+  .info-item a {
+      padding: 0;
+      margin: 0;
+  }
+
+  .phone i{
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: var(--main-color);
+    transition: 0.5s ease;
+  }
+
+  .info-item:hover .phone i{
+    scale: 1.3;
+    color: var(--second-color);
+  }
+
+.info-item p, .info-item span{
+  font-size: 20px;
+  color: darkgray;
+}
+
+.info-item {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.info-item.fly-in-visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+
+.pet-food-info {
+  padding: 0;
+  margin: 0;
+}
+
+.info-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.poodle-img {
+  width: 500px;
+  height: 430px;
+  filter: drop-shadow(20px 0px 7px rgba(242, 206, 216, 1));
+  border: none;
+}
+
+.info-text {
+  max-width: 700px;
+  text-align: left;
+}
+
+  .info-text h2 {
+      font-size: 34px;
+      color: var(--main-color);
+      font-weight: 900;
+      margin-bottom: 16px;
+      text-align: left; 
+  }
+
+  .info-text p {
+      margin-bottom: 22px;
+      font-size: 20px;
+      
+      text-align: justify;
+  }
+
+.read-more {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 16px;
+  color: var(--main-color);
+  background-color: var(--other-color);
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.read-more:hover{
+  background-color: var(--main-color);
+  color: white;
+  box-shadow: 0 0 5px var(--second-color);
+}
+
+.fly-in-section {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.6s ease;
+}
+
+.fly-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+
 /* Nhiem vu 2 */
 /* Nhiem vu 3 */
