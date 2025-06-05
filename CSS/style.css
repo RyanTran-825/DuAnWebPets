@@ -140,7 +140,7 @@ header.sticky {
   transition: background 0.5s ease;
 }
 
-/* Nhiem vu 0 */
+/* Nhiem vu 0 - Nha Phuong*/
 .home {
   display: grid;
   justify-content: center;
@@ -218,14 +218,13 @@ header.sticky {
   color: var(--text-color);
 }
 
-/* Nhiem vu 1 */
-
+/* Nhiem vu 1 - Bao Chau */
 
 .info-boxes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
- 
+
   border-radius: 10px;
   margin-bottom: 90px;
 }
@@ -233,31 +232,31 @@ header.sticky {
 .info-item {
   padding: 50px 10px;
   text-align: center;
-  
+
   border-radius: 12px;
-  background-color: var(--other-color); 
+  background-color: var(--other-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.info-item a {
+  padding: 0;
+  margin: 0;
+}
 
-  .info-item a {
-      padding: 0;
-      margin: 0;
-  }
+.phone i {
+  font-size: 50px;
+  margin-bottom: 30px;
+  color: var(--main-color);
+  transition: 0.5s ease;
+}
 
-  .phone i{
-    font-size: 50px;
-    margin-bottom: 30px;
-    color: var(--main-color);
-    transition: 0.5s ease;
-  }
+.info-item:hover .phone i {
+  scale: 1.3;
+  color: var(--second-color);
+}
 
-  .info-item:hover .phone i{
-    scale: 1.3;
-    color: var(--second-color);
-  }
-
-.info-item p, .info-item span{
+.info-item p,
+.info-item span {
   font-size: 20px;
   color: darkgray;
 }
@@ -270,9 +269,8 @@ header.sticky {
 
 .info-item.fly-in-visible {
   opacity: 1;
-  transform: translateY(0); 
+  transform: translateY(0);
 }
-
 
 .pet-food-info {
   padding: 0;
@@ -298,20 +296,20 @@ header.sticky {
   text-align: left;
 }
 
-  .info-text h2 {
-      font-size: 34px;
-      color: var(--main-color);
-      font-weight: 900;
-      margin-bottom: 16px;
-      text-align: left; 
-  }
+.info-text h2 {
+  font-size: 34px;
+  color: var(--main-color);
+  font-weight: 900;
+  margin-bottom: 16px;
+  text-align: left;
+}
 
-  .info-text p {
-      margin-bottom: 22px;
-      font-size: 20px;
-      
-      text-align: justify;
-  }
+.info-text p {
+  margin-bottom: 22px;
+  font-size: 20px;
+
+  text-align: justify;
+}
 
 .read-more {
   display: inline-block;
@@ -325,7 +323,7 @@ header.sticky {
   font-weight: bold;
 }
 
-.read-more:hover{
+.read-more:hover {
   background-color: var(--main-color);
   color: white;
   box-shadow: 0 0 5px var(--second-color);
@@ -342,14 +340,309 @@ header.sticky {
   transform: translateY(0);
 }
 
+.pet-food-info {
+  margin-bottom: 70px;
+}
 
+/* Nhiem vu 2 - Nha Phuong*/
+/* Section cua hang */
+.boxes-food {
+  text-align: center;
+}
+.boxes-food > h3 {
+  color: var(--main-color);
+  font-size: 25px;
+  margin-bottom: 15px;
+}
 
+.boxes-food > h1 {
+  font-size: 30px;
+}
 
+.food-item {
+  position: relative;
+  background-color: var(--other-color);
+  padding: 20px 10px;
+  width: 300px;
+  height: 500px;
+  border-radius: 10px;
+}
 
+.food-item > img {
+  max-width: 250px;
+  margin-bottom: 10px;
+}
 
+.food-item > a:first-child {
+  position: absolute;
+  z-index: 2;
+  font-size: 30px;
+  top: 100;
+  left: 10px;
+  color: var(--main-color);
+  transition: color 0.3s ease;
+}
 
+/* Khi nhan vao trai tim */
+.food-item a:first-child.active i {
+  color: var(--main-color);
+  animation: pop 0.3s ease;
+}
 
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
+.pop-anim {
+  animation: pop 0.3s ease;
+}
+/* Cuon ngang */
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
 
-/* Nhiem vu 2 */
-/* Nhiem vu 3 */
+.foods {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+/* Ẩn thanh cuộn */
+.foods::-webkit-scrollbar {
+  display: none;
+}
+
+/* Nút mũi tên trái/phải */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Chỉnh cho food-item có kích thước chuẩn để cuộn */
+.food-item {
+  min-width: 250px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.read-more-s {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 16px;
+  color: var(--main-color);
+  background-color: var(--other-color);
+  border: 1px solid var(--main-color);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.des {
+  color: darkgray;
+  font-size: 20px;
+  display: inline-block;
+  margin: 10px 0 0;
+}
+
+.cost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  margin-top: auto;
+}
+
+.cost > p {
+  font-size: 20px;
+}
+
+.cost > a {
+  display: inline-block;
+  padding: 8px 16px;
+  color: var(--main-color);
+  background-color: var(--other-color);
+  border: 1px solid var(--main-color);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cost > a:hover {
+  background-color: var(--main-color);
+  color: white;
+  box-shadow: 0 0 5px var(--second-color);
+}
+
+.boxes-food {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.6s ease;
+}
+
+.boxes-food.fly-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section chung nhan */
+.cn-boxes {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.cn-mom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 40px 0;
+  border-radius: 10px;
+}
+
+.cn-item {
+  padding: 50px 20px;
+  border-radius: 12px;
+  background-color: var(--other-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.cn-mom:hover .cn-item:hover {
+  opacity: 1 !important;
+  transform: scale(1.1); /* to vừa phải cho đẹp */
+  z-index: 10;
+}
+
+.cn-mom:hover .cn-item {
+  opacity: 0.5;
+  transform: scale(1); /* tránh các ô khác cũng bị scale nhỏ đi */
+}
+
+.cn-boxes > h3 {
+  color: var(--main-color);
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.cn-boxes > h1 {
+  font-size: 30px;
+}
+
+.phones {
+  color: var(--main-color);
+  font-size: 25px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.cn-item > p {
+  font-size: 17px;
+  color: darkgray;
+  text-align: justify;
+}
+
+.cn-boxes {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.6s ease;
+}
+
+.cn-boxes.fly-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* footer */
+.contact {
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+  margin-top: 70px;
+  background-color: var(--other-color);
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 30px 70px 20px;
+}
+
+.contact > p {
+  margin-top: 20px;
+  color: darkgray;
+  font-size: 18px;
+}
+
+.icons-mxh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.icons-mxh > a {
+  font-size: 30px;
+  color: var(--main-color);
+}
+
+.icons-mxh > a:hover {
+  color: white;
+}
+
+.adr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 10px;
+}
+
+.adr > a > i:hover {
+  color: white;
+}
+
+.adr > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.adr > a > i {
+  font-size: 25px;
+  color: var(--main-color);
+}
