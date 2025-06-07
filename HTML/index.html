@@ -31,19 +31,33 @@
       <div class="nav-list">
         <ul>
           <li>
-            <a href="#home" id="home">Trang chủ</a>
+            <a href="index.html#home" data-page="home" class="nav-link"
+              >Trang chủ</a
+            >
           </li>
           <li>
-            <a href="#info">Thông tin</a>
+            <a href="info.html#info" data-page="info" class="nav-link"
+              >Thông tin</a
+            >
+          </li>
+          <li class="has-submenu" id="dropdown">
+            <a href="store.html#store" data-page="store" class="nav-link"
+              >Cửa hàng</a
+            >
+            <ul class="submenu">
+              <li><a href="store.html#cho">Thức ăn chó</a></li>
+              <li><a href="store.html#meo">Thức ăn mèo</a></li>
+              <li><a href="store.html#cat">Cát vệ sinh</a></li>
+              <li><a href="store.html#dochoi">Đồ chơi xinh</a></li>
+              <li><a href="store.html#yeuthich">Yêu thích</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#cl" data-page="cl" class="nav-link">Chứng nhận</a>
           </li>
           <li>
-            <a href="#store">Cửa hàng</a>
-          </li>
-          <li>
-            <a href="#cl">Chứng nhận</a>
-          </li>
-          <li>
-            <a href="#contact">Liên hệ</a>
+            <a href="#contact" data-page="contact" class="nav-link">Liên hệ</a>
           </li>
         </ul>
       </div>
@@ -53,7 +67,24 @@
           <a href="" id="nut"><i class="bx bx-search"></i> </a>
         </div>
 
-        <a href="/HTML/cart.html"><i class="bx bx-cart"></i> </a>
+        <div class="cart-icon-wrapper">
+          <a href="/HTML/cart.html"
+            ><i class="bx bx-cart"></i> <span id="cart-count">0</span></a
+          >
+          <div id="mini-cart-dropdown" class="mini-cart-dropdown">
+            <h5>Giỏ hàng của bạn</h5>
+            <div id="mini-cart-items" class="mini-cart-items">
+              <p class="text-muted text-center">Giỏ hàng trống.</p>
+            </div>
+            <div class="mini-cart-footer">
+              <span>Tổng tiền:</span>
+              <span id="mini-cart-total-price">0₫</span>
+            </div>
+            <div class="mini-cart-actions">
+              <a href="/HTML/cart.html" class="btn-view-cart">Xem giỏ hàng</a>
+            </div>
+          </div>
+        </div>
         <a href="" class="menu"> <i class="bx bx-menu"></i></a>
         <a href=""><i class="bx bx-user"></i></a>
       </div>
@@ -61,7 +92,7 @@
 
     <!-- Nhiem  vu 0 (Nha Phuong) -->
     <!-- Home -->
-    <section class="home" id="home">
+    <section class="home" id="home" data-group="home">
       <div class="left">
         <h1>THỨC ĂN <span>HẤP DẪN</span> CHO <span>THÚ CƯNG</span> CỦA BẠN</h1>
         <div class="buttons">
@@ -76,7 +107,7 @@
 
     <!-- Nhiem  vu 1 (Bao Chau)-->
     <!-- Thong tin -->
-    <section class="info-boxes" id="info">
+    <section class="info-boxes" id="info" data-group="info">
       <div class="info-item">
         <a href="" class="phone"><i class="bx bxs-watch"></i></a>
         <p>7:00am - 21:00pm</p>
@@ -94,7 +125,7 @@
       </div>
     </section>
 
-    <section class="pet-food-info fly-in-section">
+    <section class="pet-food-info fly-in-section" id="info-2" data-group="info">
       <div class="info-container">
         <img src="/IMG/dog.png" alt="poodle" class="poodle-img" />
         <div class="info-text">
@@ -118,7 +149,7 @@
 
     <!-- Nhiem  vu 2 (Nha Phuong) -->
     <!-- Section cua hang -->
-    <section class="boxes-food" id="store">
+    <section class="boxes-food" id="store" data-group="store">
       <h3>Cửa Hàng Chúng Tôi</h3>
       <h1>NHỮNG SẢN PHẨM BÁN CHẠY</h1>
       <div class="slider-wrapper">
@@ -127,114 +158,174 @@
 
         <div class="foods">
           <div class="food-item">
-            <a href=""><i class="bx bx-heart"></i></a>
-            <img src="/IMG/TA1.png" class="i-sp" alt="" />
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <img src="/IMG/TA2.png" class="i-sp" alt="Royal Canin Hairball" />
             <h3>Royal Canin</h3>
-            <a href="" class="des"
-              >Thức ăn hạt cho giống chó nhỏ Royal Canin Mini Puppy</a
+            <a href="#" class="des"
+              >Thức ăn hạt cho mèo tiêu búi lông Royal Canin Hairball</a
             >
             <div class="cost">
-              <p>209.000đ</p>
-              <a href="">Thêm</a>
-            </div>
-          </div>
-          <div class="food-item">
-            <a href=""><i class="bx bx-heart"></i></a>
-            <img src="/IMG/TA2.png" class="i-sp" alt="" />
-            <h3>Royal Canin</h3>
-            <a href="" class="des"
-              >Thức ăn hạt cho mèo tiêu búi lông Royal Canin Hairball
-            </a>
-            <div class="cost">
               <p>135.000đ</p>
-              <a href="">Thêm</a>
+              <a
+                href="javascript:void(0);"
+                class="add-to-cart"
+                data-name="Royal Canin Hairball"
+                data-price="135000"
+                data-image="/IMG/TA2.png"
+                data-description="Thức ăn hạt cho mèo tiêu búi lông Royal Canin Hairball"
+                >Thêm</a
+              >
             </div>
           </div>
           <div class="food-item">
-            <a href=""><i class="bx bx-heart"></i></a>
-            <img src="/IMG/TA3.png" class="i-sp" alt="" />
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <img src="/IMG/TA3.png" class="i-sp" alt="Royal Canin Sensory" />
             <h3>Royal Canin</h3>
-            <a href="" class="des"
+            <a href="#" class="des"
               >Pate mèo Royal Canin Sensory kích thích giác quan 85g</a
             >
             <div class="cost">
               <p>29.000đ</p>
-              <a href="">Thêm</a>
+              <a
+                href="javascript:void(0);"
+                class="add-to-cart"
+                data-name="Royal Canin Sensory"
+                data-price="29000"
+                data-image="/IMG/TA3.png"
+                data-description="Pate mèo Royal Canin Sensory kích thích giác quan 85g"
+                >Thêm</a
+              >
             </div>
           </div>
           <div class="food-item">
-            <a href=""><i class="bx bx-heart"></i></a>
-            <img src="/IMG/TA4.png" class="i-sp" alt="" />
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <img
+              src="/IMG/TA4.png"
+              class="i-sp"
+              alt="Royal Canin Hairball Pate"
+            />
             <h3>Royal Canin</h3>
-            <a href="" class="des"
+            <a href="#" class="des"
               >Pate mèo tiêu búi lông Royal Canin Hairball 85g</a
             >
             <div class="cost">
               <p>29.000đ</p>
-              <a href="">Thêm</a>
+              <a
+                href="javascript:void(0);"
+                class="add-to-cart"
+                data-name="Royal Canin Hairball Pate"
+                data-price="29000"
+                data-image="/IMG/TA4.png"
+                data-description="Pate mèo tiêu búi lông Royal Canin Hairball 85g"
+                >Thêm</a
+              >
             </div>
           </div>
           <div class="food-item">
-            <a href=""><i class="bx bx-heart"></i></a>
-            <img src="/IMG/TA5.png" class="i-sp" alt="" />
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <img
+              src="/IMG/TA5.png"
+              class="i-sp"
+              alt="Royal Canin Poodle Adult"
+            />
             <h3>Royal Canin</h3>
-            <a href="" class="des"
+            <a href="#" class="des"
               >Thức ăn hạt cho chó Poodle trưởng thành Royal Canin Poodle
               Adult</a
             >
             <div class="cost">
               <p>145.000đ</p>
-              <a href="">Thêm</a>
+              <a
+                href="javascript:void(0);"
+                class="add-to-cart"
+                data-name="Royal Canin Poodle Adult"
+                data-price="145000"
+                data-image="/IMG/TA5.png"
+                data-description="Thức ăn hạt cho chó Poodle trưởng thành Royal Canin Poodle Adult"
+                >Thêm</a
+              >
             </div>
           </div>
           <div class="food-item">
-            <a href=""><i class="bx bx-heart"></i></a>
-            <img src="/IMG/TA6.png" class="i-sp" alt="" />
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <img
+              src="/IMG/TA6.png"
+              class="i-sp"
+              alt="Royal Canin Mother and Babycat"
+            />
             <h3>Royal Canin</h3>
-            <a href="" class="des"
+            <a href="#" class="des"
               >Thức ăn hạt cho mèo mẹ & mèo con Royal Canin Mother and
               Babycat</a
             >
             <div class="cost">
               <p>120.000đ</p>
-              <a href="">Thêm</a>
+              <a
+                href="javascript:void(0);"
+                class="add-to-cart"
+                data-name="Royal Canin Mother and Babycat"
+                data-price="120000"
+                data-image="/IMG/TA6.png"
+                data-description="Thức ăn hạt cho mèo mẹ & mèo con Royal Canin Mother and Babycat"
+                >Thêm</a
+              >
             </div>
           </div>
           <div class="food-item">
-            <a href=""><i class="bx bx-heart"></i></a>
-            <img src="/IMG/TA7.png" class="i-sp" alt="" />
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <img
+              src="/IMG/TA7.png"
+              class="i-sp"
+              alt="Royal Canin Medium Adult"
+            />
             <h3>Royal Canin</h3>
-            <a href="" class="des"
+            <a href="#" class="des"
               >Thức ăn hạt cho chó trưởng thành giống vừa Royal Canin Medium
               Adult</a
             >
             <div class="cost">
               <p>179.000đ</p>
-              <a href="">Thêm</a>
+              <a
+                href="javascript:void(0);"
+                class="add-to-cart"
+                data-name="Royal Canin Medium Adult"
+                data-price="179000"
+                data-image="/IMG/TA7.png"
+                data-description="Thức ăn hạt cho chó trưởng thành giống vừa Royal Canin Medium Adult"
+                >Thêm</a
+              >
             </div>
           </div>
           <div class="food-item">
-            <a href=""><i class="bx bx-heart"></i></a>
-            <img src="/IMG/TA8.png" class="i-sp" alt="" />
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <img src="/IMG/TA8.png" class="i-sp" alt="Royal Canin Fit 32" />
             <h3>Royal Canin</h3>
-            <a href="" class="des"
+            <a href="#" class="des"
               >Thức ăn hạt cho mèo trưởng thành vận động thường xuyên Royal
               Canin Fit 32</a
             >
             <div class="cost">
               <p>109.000đ</p>
-              <a href="">Thêm</a>
+              <a
+                href="javascript:void(0);"
+                class="add-to-cart"
+                data-name="Royal Canin Fit 32"
+                data-price="109000"
+                data-image="/IMG/TA8.png"
+                data-description="Thức ăn hạt cho mèo trưởng thành vận động thường xuyên Royal Canin Fit 32"
+                >Thêm</a
+              >
             </div>
           </div>
         </div>
         <button class="arrow right">&#10095;</button>
         <!-- mũi tên phải -->
       </div>
-      <a href="#" class="read-more read-more-s">Xem thêm ➤</a>
+      <a href="/HTML/store.html" class="read-more read-more-s">Xem thêm ➤</a>
     </section>
 
     <!-- Section chung nhan -->
-    <section class="cn-boxes" id="cl">
+    <section class="cn-boxes" id="cl" data-group="cl">
       <h3>Chứng Nhận</h3>
       <h1>AN TOÀN THỰC PHẨM</h1>
       <div class="cn-mom">
@@ -267,7 +358,7 @@
         </div>
       </div>
     </section>
-    <footer class="contact" id="contact">
+    <footer class="contact" id="contact" data-group="contact">
       <h1>LIÊN HỆ</h1>
       <p>
         Chúng tôi cam kết cung cấp thức ăn cho thú cưng với nguồn gốc <br />rõ
@@ -289,7 +380,7 @@
       </div>
     </footer>
     <!-- link script -->
-    <script src="/JS/script.js"></script>
     <script src="/JS/cart.js"></script>
+    <script src="/JS/script.js"></script>
   </body>
 </html>

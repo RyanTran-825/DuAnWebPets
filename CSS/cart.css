@@ -1,0 +1,320 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Mulish", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+}
+
+:root {
+  --main-color: #f26398;
+  --text-color: #ffffff;
+  --other-color: #212121;
+  --second-color: #f2ced8;
+  --bg-color: #111111;
+
+  --big-font: 4.5rem;
+  --h2-font: 2.6rem;
+  --p-font: 1.1rem;
+}
+
+.card-body {
+  background-color: var(--other-color);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  padding: 0 10%;
+}
+
+.cart-footer-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--other-color);
+  padding: 10px 0;
+  border-top: 1px solid var(--second-color);
+  z-index: 999;
+}
+
+.cart-footer-bar .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cart-footer-bar input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.cart-footer-bar .btn-checkout {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  font-weight: bold;
+  border: none;
+}
+
+.cart-footer-bar .btn-checkout:hover {
+  background-color: #e55589;
+}
+
+/* Phần khung trắng không bo góc, không bóng, kéo dài */
+.cart-container {
+  width: 100%;
+  padding: none;
+  margin: 0 auto;
+  background-color: var(--other-color);
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 100vh; /* Đảm bảo kéo dài nếu chưa đủ chiều cao */
+  padding-bottom: 120px; /* Chừa khoảng cho thanh cố định bên dưới */
+}
+
+/* Thanh cố định phía dưới */
+.cart-footer-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--other-color);
+  padding: 15px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--second-color);
+  z-index: 1000;
+}
+
+.cart-footer-bar .btn {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.cart-footer-bar .btn-continue {
+  background-color: #f2f2f2;
+  color: black;
+  border: none;
+}
+
+.cart-footer-bar .btn-checkout {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  border: none;
+}
+
+.cart-footer-bar .btn-checkout:hover {
+  background-color: #e55589;
+}
+
+.table-cart {
+  padding: 100px 0;
+}
+
+.cart-item-image {
+  width: 200px; /* hoặc bất kỳ kích thước mong muốn nào */
+  height: 200px;
+  object-fit: cover; /* giúp hình không bị méo */
+  border-radius: 8px; /* tuỳ chọn: bo góc cho đẹp */
+}
+
+.cart i {
+  font-size: 50px;
+  margin-bottom: 30px;
+  color: var(--main-color);
+  transition: 0.5s ease;
+}
+.info-item:hover .cart i {
+  scale: 1.3;
+  color: var(--second-color);
+}
+.pop-anim {
+  animation: popEffect 0.3s ease-out;
+}
+
+@keyframes popEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  } /* Phóng to nhẹ */
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animation bay hình vòng cung */
+.flying-to-cart {
+  animation: flyArc 0.8s cubic-bezier(0.5, -0.5, 0.5, 1.5) forwards; /* Đường cong Bezier */
+  /* adjusted cubic-bezier for more pronounced arc */
+}
+
+@keyframes flyArc {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    /* Vị trí ban đầu đã được set qua JS fixed */
+  }
+  50% {
+    /* Điểm giữa đường, đẩy lên cao hơn để tạo vòng cung */
+    transform: translate(
+        calc(var(--end-x) - var(--start-x)) / 2,
+        calc(var(--apex-y) - var(--start-y))
+      )
+      scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    /* Vị trí cuối cùng */
+    transform: translate(
+        calc(var(--end-x) - var(--start-x)),
+        calc(var(--end-y) - var(--start-y))
+      )
+      scale(0.2);
+    opacity: 0.5;
+  }
+}
+
+.cart-item-description {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+/* Kiểu cho số lượng sản phẩm trên icon */
+.cart-icon-wrapper {
+  position: relative; /* Quan trọng để .cart-badge và .mini-cart-dropdown định vị theo nó */
+  display: inline-block; /* Đảm bảo nó không chiếm hết chiều rộng */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px; /* Điều chỉnh để nó nằm trên góc của icon */
+  right: -10px; /* Điều chỉnh để nó nằm ở bên phải của icon */
+  background-color: red; /* Màu nền đỏ */
+  color: var(--main-color); /* Chữ màu trắng */
+  border-radius: 50%; /* Làm tròn để tạo hình tròn */
+  padding: 2px 6px; /* Kích thước đệm */
+  font-size: 0.7em; /* Kích thước chữ nhỏ hơn */
+  font-weight: bold;
+  line-height: 1; /* Căn giữa văn bản */
+  text-align: center;
+  min-width: 18px; /* Đảm bảo hình tròn ngay cả với số 1 chữ số */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5); /* Viền nhỏ (tùy chọn) */
+  display: none; /* Ban đầu ẩn đi */
+}
+
+.cart-badge.has-items {
+  display: block; /* Hiển thị khi có sản phẩm */
+}
+
+/* Kiểu cho Mini-Cart Dropdown */
+.mini-cart-dropdown {
+  position: absolute;
+  top: 100%; /* Đặt ngay dưới cart icon */
+  right: 0;
+  background-color: #333; /* Màu nền hộp thoại */
+  border: 1px solid #555;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px; /* Chiều rộng của hộp thoại */
+  max-height: 400px; /* Chiều cao tối đa */
+  overflow-y: auto; /* Cuộn nếu nội dung quá dài */
+  padding: 15px;
+  z-index: 100; /* Đảm bảo nó nằm trên các phần tử khác */
+  display: none; /* Ban đầu ẩn đi */
+  opacity: 0;
+  transform: translateY(
+    10px
+  ); /* Bắt đầu hơi dịch xuống để tạo hiệu ứng trượt */
+  transition: opacity 0.3s ease, transform 0.3s ease, display 0.3s ease;
+}
+
+.mini-cart-dropdown h4 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+  font-size: 1.1em;
+}
+
+#mini-cart-items {
+  margin-bottom: 10px;
+}
+
+.mini-cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #444; /* Viền nét đứt giữa các sản phẩm */
+}
+
+.mini-cart-item:last-child {
+  border-bottom: none; /* Không có viền ở sản phẩm cuối cùng */
+}
+
+.mini-cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.mini-cart-item .item-details {
+  flex-grow: 1;
+}
+
+.mini-cart-item .item-details .item-name {
+  color: white;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  font-size: 0.95em;
+  white-space: nowrap; /* Ngăn tên sản phẩm xuống dòng */
+  overflow: hidden; /* Ẩn phần bị tràn */
+  text-overflow: ellipsis; /* Hiển thị dấu ... nếu tên quá dài */
+}
+
+.mini-cart-item .item-details .item-quantity-price {
+  color: #bbb;
+  font-size: 0.85em;
+  margin: 0;
+}
+
+.mini-cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #444;
+}
+
+#mini-cart-total-price {
+  color: var(--second-color); /* Sử dụng màu đã định nghĩa của bạn */
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.mini-cart-footer .btn-view-cart {
+  background-color: var(--main-color); /* Màu nút của bạn */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+
+.mini-cart-footer .btn-view-cart:hover {
+  background-color: var(--second-color); /* Màu hover */
+}
+
+/* Ẩn mini-cart khi không có sản phẩm trong localStorage (dành cho trường hợp giỏ trống ban đầu) */
+/* Cần điều chỉnh JavaScript để xử lý trường hợp giỏ trống */
+/* Có thể dùng JavaScript để kiểm tra và ẩn hiện, hoặc mặc định display:none và JS display:block khi cần */

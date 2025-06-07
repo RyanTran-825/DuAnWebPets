@@ -1,8 +1,106 @@
-//Hieu ung menu doi mau khi luot xuong (Nha Phuong)
+// Nha Phuong
+//Hieu ung menu doi mau khi luot xuong
 const header = document.querySelector("header");
 
 window.addEventListener("scroll", function () {
   header.classList.toggle("sticky", window.scrollY > 80);
+});
+
+//nav
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll(
+    "section[data-group], footer[data-group]"
+  );
+
+  // Lấy tên file
+  let currentPage = window.location.pathname.split("/").pop();
+  if (currentPage === "") currentPage = "index.html";
+
+  // 1. Đánh dấu nav-link đúng trang hiện tại
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    const page = link.dataset.page;
+    if (href.includes(currentPage) && sections.length === 0) {
+      // Nếu KHÔNG có section (trang đơn)
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+
+  // 2. Nếu có section → xử lý đổi màu theo scroll
+  function updateActiveNavLinkByScroll() {
+    let activeGroup = "";
+
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const scroll = window.scrollY + window.innerHeight / 2;
+
+      if (scroll >= top && scroll < top + height) {
+        activeGroup = section.dataset.group;
+      }
+    });
+
+    if (activeGroup !== "") {
+      navLinks.forEach((link) => {
+        if (link.dataset.page === activeGroup) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    }
+  }
+
+  // Gọi ngay để xử lý khi vừa load trang
+  if (sections.length > 0) {
+    updateActiveNavLinkByScroll();
+    window.addEventListener("scroll", updateActiveNavLinkByScroll);
+  }
+});
+
+//Giu mau active cho the a neu chuyen sang trang html cua the do
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".nav-link");
+  const currentPage = document.body.dataset.current;
+
+  navLinks.forEach((link) => {
+    const page = link.dataset.page;
+    if (page === currentPage) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+});
+
+//show dropdown menu
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.getElementById("dropdown");
+  const dropdownLink = dropdown.querySelector("a");
+  let hideTimer;
+
+  // Hover vào → hiển thị menu
+  dropdown.addEventListener("mouseenter", () => {
+    clearTimeout(hideTimer); // Hủy bỏ đếm ngược nếu vừa hover lại
+    dropdown.classList.add("show");
+  });
+
+  // Rời chuột → đợi 400ms rồi ẩn menu (nếu không quay lại)
+  dropdown.addEventListener("mouseleave", () => {
+    hideTimer = setTimeout(() => {
+      dropdown.classList.remove("show");
+    }, 400); // 👈 Dino có thể chỉnh thời gian ở đây (ms)
+  });
+
+  // Click nơi khác trên trang sẽ đóng menu
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });
 });
 
 // Nhiem vu 1 - (Bao Chau)
@@ -120,3 +218,66 @@ const observer4 = new IntersectionObserver(
 );
 
 fly.forEach((section) => observer4.observe(section));
+
+// hieu ung hover gio hang
+
+// Đảm bảo DOM đã tải đầy đủ trước khi chạy script
+document.addEventListener("DOMContentLoaded", function () {
+  // Logic chung của script.js (nếu có)
+  // Ví dụ: slider, menu toggle, v.v.
+  // ... (giữ nguyên các code hiện có của bạn trong script.js) ...
+
+  // --- LOGIC CHO MINI-CART (HIỆN KHI HOVER) - CHỈ TRÊN TRANG INDEX.HTML ---
+  const cartIconWrapper = document.querySelector(".cart-icon-wrapper");
+  const miniCartDropdown = document.getElementById("mini-cart-dropdown");
+
+  if (cartIconWrapper && miniCartDropdown) {
+    // Đảm bảo mini-cart được ẩn mặc định (CSS cũng nên làm điều này)
+    miniCartDropdown.style.display = "none";
+    miniCartDropdown.style.opacity = "0";
+    miniCartDropdown.style.transform = "translateY(10px)";
+    miniCartDropdown.style.pointerEvents = "none"; // Ensure it's not interactive when hidden
+
+    let hoverTimeout;
+
+    cartIconWrapper.addEventListener("mouseenter", () => {
+      clearTimeout(hoverTimeout); // Xóa timeout ẩn nếu đang có
+      // Gọi hàm từ cart.js để cập nhật nội dung mini-cart
+      if (typeof updateCartCountAndMiniCart === "function") {
+        updateCartCountAndMiniCart(); // Update content before showing
+      }
+      miniCartDropdown.style.display = "block"; // Hiển thị mini-cart
+      miniCartDropdown.style.opacity = "1";
+      miniCartDropdown.style.transform = "translateY(0)";
+      miniCartDropdown.style.pointerEvents = "auto"; // Make it interactive when shown
+    });
+
+    cartIconWrapper.addEventListener("mouseleave", () => {
+      hoverTimeout = setTimeout(() => {
+        miniCartDropdown.style.display = "none"; // Ẩn mini-cart
+        miniCartDropdown.style.opacity = "0";
+        miniCartDropdown.style.transform = "translateY(10px)";
+        miniCartDropdown.style.pointerEvents = "none"; // Disable interaction when hidden
+      }, 300); // Thêm một chút delay để người dùng có thể di chuyển chuột vào dropdown
+    });
+
+    miniCartDropdown.addEventListener("mouseenter", () => {
+      clearTimeout(hoverTimeout); // Nếu di chuột vào dropdown, không ẩn
+    });
+
+    miniCartDropdown.addEventListener("mouseleave", () => {
+      hoverTimeout = setTimeout(() => {
+        miniCartDropdown.style.display = "none";
+        miniCartDropdown.style.opacity = "0";
+        miniCartDropdown.style.transform = "translateY(10px)";
+        miniCartDropdown.style.pointerEvents = "none";
+      }, 300);
+    });
+  }
+
+  // Đảm bảo số lượng trên icon giỏ hàng được cập nhật khi trang tải (chỉ trên index)
+  // Cần đảm bảo hàm updateCartCountAndMiniCart đã được tải từ cart.js
+  if (typeof updateCartCountAndMiniCart === "function") {
+    updateCartCountAndMiniCart(); // Initial update when index.html loads
+  }
+});
