@@ -78,7 +78,7 @@ header {
   color: var(--text-color);
 }
 
-#home {
+.nav-link.active {
   color: var(--main-color);
 }
 
@@ -138,6 +138,70 @@ header.sticky {
   padding: 12px 10%;
   background: var(--other-color);
   transition: background 0.5s ease;
+}
+
+/* Menu da cap cua cua hang */
+.nav-list ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li {
+  position: relative;
+}
+
+/* Menu con (ẩn ban đầu) */
+
+.has-submenu {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 3.5rem;
+  left: -2rem;
+  background-color: var(--other-color);
+  box-shadow: 0 2px 10px var(--second-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  padding: 15px 0;
+  z-index: 10;
+  min-width: 180px;
+  transform: translateY(-0.75rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s, opacity 0.4s;
+}
+.submenu > li {
+  padding: 0;
+  margin: 0;
+}
+.submenu > li > a {
+  padding: 8px 20px;
+  margin: 0;
+}
+
+.submenu::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-color: var(--other-color);
+  position: absolute;
+  top: -9px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  rotate: -45deg;
+}
+
+.has-submenu:hover .submenu,
+.has-submenu.show .submenu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* Nhiem vu 0 - Nha Phuong*/
@@ -505,6 +569,14 @@ header.sticky {
   box-shadow: 0 0 5px var(--second-color);
 }
 
+.i-sp {
+  transition: transform 0.3s ease;
+}
+
+.i-sp:hover {
+  transform: scale(1.05);
+}
+
 .boxes-food {
   opacity: 0;
   transform: translateY(100px);
@@ -645,4 +717,156 @@ header.sticky {
 .adr > a > i {
   font-size: 25px;
   color: var(--main-color);
+}
+
+/*hover gio hang*/
+
+/* Header and Navigation adjustments */
+header .nav {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between nav items */
+}
+
+header .nav .cart-icon-wrapper {
+  position: relative; /* For dropdown positioning */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px; /* Add some padding for easier hover */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+header .nav .cart-icon-wrapper:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+header .nav .cart-icon-wrapper a {
+  display: flex; /* Align icon and count */
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--text-color); /* Your default text color */
+}
+
+#cart-count {
+  background-color: var(--second-color); /* A vibrant color for the count */
+  color: white;
+  font-size: 0.75em;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: none; /* Hide by default if no items */
+}
+
+#cart-count.has-items {
+  display: block; /* Show if has items */
+}
+
+/* Mini-Cart Dropdown Styles */
+.mini-cart-dropdown {
+  position: absolute;
+  top: 100%; /* Position below the cart icon wrapper */
+  right: 0;
+  width: 300px; /* Adjust as needed */
+  background-color: var(--bg-color); /* Your background color */
+  border: 1px solid var(--border-color); /* Adjust based on your theme */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  z-index: 999; /* Ensure it's above other content */
+
+  /* Initial hidden state for JS animation */
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease-out; /* Smooth transition */
+  pointer-events: none; /* Prevents interaction when hidden */
+}
+
+.mini-cart-dropdown h5 {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.mini-cart-items {
+  max-height: 250px; /* Scroll if too many items */
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.mini-cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Light separator */
+}
+
+.mini-cart-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.mini-cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.mini-cart-item .item-details {
+  flex-grow: 1;
+}
+
+.mini-cart-item .item-name {
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 3px;
+}
+
+.mini-cart-item .item-quantity-price {
+  font-size: 0.9em;
+  color: var(--second-color);
+}
+
+.mini-cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.mini-cart-actions {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.mini-cart-actions .btn-view-cart {
+  display: inline-block;
+  background-color: var(--main-color); /* Your main button color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.mini-cart-actions .btn-view-cart:hover {
+  background-color: var(--second-color); /* Darker shade on hover */
+}
+
+/* Ẩn mini-cart trên trang giỏ hàng (nếu cấu trúc HTML vẫn còn) */
+/* Để điều này hoạt động, bạn cần thêm class 'cart-page' vào thẻ <body> của cart.html */
+body.cart-page .mini-cart-dropdown {
+  display: none !important;
 }

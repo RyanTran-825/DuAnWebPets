@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link icon-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+
+    <!-- Link font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link css -->
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="/CSS/cart.css" />
+    <link rel="stylesheet" href="/CSS/store.css" />
+
+    <title>Store</title>
+  </head>
+  <body data-current="store">
+    <!-- Nha Phuong -->
+    <header>
+      <div class="logo">
+        <a href="/HTML/index.html"
+          ><i class="bx bxs-home"></i> CPK<span>8</span>
+        </a>
+      </div>
+      <div class="nav-list">
+        <ul>
+          <li>
+            <a href="index.html#home" data-page="home" class="nav-link"
+              >Trang chủ</a
+            >
+          </li>
+          <li>
+            <a href="info.html#info" data-page="info" class="nav-link"
+              >Thông tin</a
+            >
+          </li>
+          <li class="has-submenu" id="dropdown">
+            <a href="#" data-page="store" class="nav-link">Cửa hàng</a>
+            <ul class="submenu">
+              <li><a href="store.html#meo">Thức ăn mèo</a></li>
+              <li><a href="store.html#cho">Thức ăn chó</a></li>
+              <li><a href="store.html#cat">Cát vệ sinh</a></li>
+              <li><a href="store.html#dochoi">Đồ chơi xinh</a></li>
+              <li><a href="store.html#yeuthich">Yêu thích</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="index.html#cl" data-page="cl" class="nav-link"
+              >Chứng nhận</a
+            >
+          </li>
+          <li>
+            <a href="index.html#contact" data-page="contact" class="nav-link"
+              >Liên hệ</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="nav">
+        <div class="sr">
+          <input type="text" class="search" placeholder="Tìm kiếm..." />
+          <a href="" id="nut"><i class="bx bx-search"></i> </a>
+        </div>
+
+        <div class="cart-icon-wrapper">
+          <a href="/HTML/cart.html"
+            ><i class="bx bx-cart"></i> <span id="cart-count">0</span></a
+          >
+          <div id="mini-cart-dropdown" class="mini-cart-dropdown">
+            <h5>Giỏ hàng của bạn</h5>
+            <div id="mini-cart-items" class="mini-cart-items">
+              <p class="text-muted text-center">Giỏ hàng trống.</p>
+            </div>
+            <div class="mini-cart-footer">
+              <span>Tổng tiền:</span>
+              <span id="mini-cart-total-price">0₫</span>
+            </div>
+            <div class="mini-cart-actions">
+              <a href="/HTML/cart.html" class="btn-view-cart">Xem giỏ hàng</a>
+            </div>
+          </div>
+        </div>
+        <a href="" class="menu"> <i class="bx bx-menu"></i></a>
+        <a href=""><i class="bx bx-user"></i></a>
+      </div>
+    </header>
+    <section class="loai">
+      <h2>Sản phẩm nổi bật ở cửa hàng</h2>
+      <div class="cac-loai">
+        <div class="loai-item">
+          <a href="#meo">
+            <img src="/IMG/loai1.png" alt="" />
+          </a>
+
+          <a href="#meo">Thức ăn mèo</a>
+        </div>
+        <div class="loai-item">
+          <a href="#cho">
+            <img src="/IMG/loai2.png" alt="" />
+          </a>
+          <a href="#cho">Thức ăn chó</a>
+        </div>
+        <div class="loai-item">
+          <a href="#cat">
+            <img src="/IMG/loai3.png" alt="" />
+          </a>
+          <a href="#cat">Cát vệ sinh</a>
+        </div>
+        <div class="loai-item">
+          <a href="#dochoi">
+            <img src="/IMG/loai4.png" alt="" />
+          </a>
+          <a href="#dochoi">Đồ chơi xinh</a>
+        </div>
+      </div>
+    </section>
+    <hr class="ngang" />
+
+    <!-- SECTION THUC AN CHO MEO -->
+    <section class="meo" id="meo">
+      <h3>Thức ăn cho mèo</h3>
+      <div class="meos">
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m1.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho mèo trưởng thành nuôi trong nhà Royal Canin Indoor
+            27</a
+          >
+          <div class="cost">
+            <p>115.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m2.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho mèo sỏi thận Royal Canin Uniary S/O</a
+          >
+          <div class="cost">
+            <p>169.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m3.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Pate mèo con Royal Canin Kitten Instinctive 35g</a
+          >
+          <div class="cost">
+            <p>28.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m4.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Pate mèo trưởng thành Royal Canin Instinctive 85g</a
+          >
+          <div class="cost">
+            <p>25.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m5.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho mèo lớn Anh lông ngắn Royal Canin British
+            Shorthair</a
+          >
+          <div class="cost">
+            <p>144.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m6.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Pate mèo Royal Canin Sonsory kích thích giác quan 85g</a
+          >
+          <div class="cost">
+            <p>29.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m7.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho mèo tiêu búi lông Royal Canin Hairball</a
+          >
+          <div class="cost">
+            <p>135.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m8.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Pate mèo tiêu búi lông Royal Canin Hairball 85g</a
+          >
+          <div class="cost">
+            <p>29.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m9.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho mèo mẹ & mèo con Royal Mother & Babycat</a
+          >
+          <div class="cost">
+            <p>120.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m10.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho mèo trưởng thành vận động thường xuyên Royal Canin
+            Fit 32</a
+          >
+          <div class="cost">
+            <p>109.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m11.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho mèo trưởng thành triệt sản Royal Canin
+            Sterilised</a
+          >
+          <div class="cost">
+            <p>116.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/m12.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Pate mèo mẹ và mèo con Royal Canin Mother And Babycat (Lon 195g)</a
+          >
+          <div class="cost">
+            <p>55.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION THUC AN CHO CHO -->
+    <section class="cho" id="cho">
+      <h3>Thức ăn cho chó</h3>
+      <div class="meos">
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/TA1.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho giống chó nhỏ Royal Canin Mini Puppy</a
+          >
+          <div class="cost">
+            <p>209.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c1.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho chó con Poodle Royal Canin Poodle Puppy</a
+          >
+          <div class="cost">
+            <p>169.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c2.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho chó trưởng thành giống nhỏ Royal Canin Mini
+            Adult</a
+          >
+          <div class="cost">
+            <p>175.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c3.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho chó Poodle trưởng thành Royal Canin Poodle Adult</a
+          >
+          <div class="cost">
+            <p>145.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c4.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho chó trưởng thành giống vừa Royal Medium Adult</a
+          >
+          <div class="cost">
+            <p>179.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c5.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Pate cho chó con giống nhỏ Royal Canin Mini Puppy</a
+          >
+          <div class="cost">
+            <p>29.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c6.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho chó con giống vừa Royal Canin Medium Puppy</a
+          >
+          <div class="cost">
+            <p>215.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c7.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn hạt cho chó viêm da Royal Canin Mini Dermacomfort</a
+          >
+          <div class="cost">
+            <p>284.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c8.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Pate cho chó phục hồi sức khỏe Royal Canin Rocovery Lon 195g</a
+          >
+          <div class="cost">
+            <p>75.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c9.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des">Thức ăn cho chó lớn Royal Canin Maxi Adult</a>
+          <div class="cost">
+            <p>179.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c10.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Thức ăn điều trị bệnh cho chó hỗ trợ chức năng gan Royal Canin
+            Hepatic 1.5kg</a
+          >
+          <div class="cost">
+            <p>409.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/c11.png" class="i-sp" alt="" />
+          <h3>Royal Canin</h3>
+          <a href="" class="des"
+            >Hạt cho chó trưởng thành giống siêu nhỏ Royal Canin X-Small
+            Adult</a
+          >
+          <div class="cost">
+            <p>166.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION CAT VE SINH -->
+    <section class="cat" id="cat">
+      <h3>Cát vệ sinh</h3>
+      <div class="meos">
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/t1.png" class="i-sp" alt="" />
+          <h3>Paddy</h3>
+          <a href="" class="des"
+            >Cát mèo đất sét Moon Cat vón cục khử mùi tốt (8l)</a
+          >
+          <div class="cost">
+            <p>55.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/t2.png" class="i-sp" alt="" />
+          <h3>LaPaw</h3>
+          <a href="" class="des">Đất sét mix than hoạt tính</a>
+          <div class="cost">
+            <p>75.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/t3.png" class="i-sp" alt="" />
+          <h3>Cature</h3>
+          <a href="" class="des">Cát đậu nành cho mèo Cature Tofu</a>
+          <div class="cost">
+            <p>150.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/t4.png" class="i-sp" alt="" />
+          <h3>Aatas</h3>
+          <a href="" class="des">Cát đất sét mèo Aatas Bentonite 10l</a>
+          <div class="cost">
+            <p>95.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/t5.png" class="i-sp" alt="" />
+          <h3>Acro Pet</h3>
+          <a href="" class="des">Cát mèo đậu nành Acro Pet 5l</a>
+          <div class="cost">
+            <p>80.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/t6.png" class="i-sp" alt="" />
+          <h3>LaPaw</h3>
+          <a href="" class="des">Cát đậu nành cho mèo LaPaw cao cấp 2.5kg</a>
+          <div class="cost">
+            <p>115.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/t7.png" class="i-sp" alt="" />
+          <h3>Cature</h3>
+          <a href="" class="des"
+            >Cát mèo đất xét mix đậu nành Cature Bentonite 2.8kg (5l)</a
+          >
+          <div class="cost">
+            <p>145.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DO CHOI XINH -->
+    <section class="dochoi" id="dochoi">
+      <h3>Đồ chơi xinh</h3>
+      <div class="meos">
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d1.png" class="i-sp" alt="" />
+          <h3>Paddy</h3>
+          <a href="" class="des"
+            >Roi tiên được luyện từ lông phượng hoàng dành cho boss</a
+          >
+          <div class="cost">
+            <p>400.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d2.png" class="i-sp" alt="" />
+          <h3>Fofos</h3>
+          <a href="" class="des">Những trái bóng mềm mại vui nhộn tròn trĩnh</a>
+          <div class="cost">
+            <p>28.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d3.png" class="i-sp" alt="" />
+          <h3>Paddy</h3>
+          <a href="" class="des">Cần câu que gỗ đính thú</a>
+          <div class="cost">
+            <p>60.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d4.png" class="i-sp" alt="" />
+          <h3>CattyMan</h3>
+          <a href="" class="des"
+            >Bộ giũa móng cao cấp hàng Verdetcica thế kỉ 18 giá yêu thương</a
+          >
+          <div class="cost">
+            <p>900.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d5.png" class="i-sp" alt="" />
+          <h3>Paddy</h3>
+          <a href="" class="des"
+            >Chuông bấm cho thú cưng, vang là chốt bấm là kêu</a
+          >
+          <div class="cost">
+            <p>76.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d6.png" class="i-sp" alt="" />
+          <h3>Paddy</h3>
+          <a href="" class="des">Chuột lồng banh</a>
+          <div class="cost">
+            <p>15.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d7.png" class="i-sp" alt="" />
+          <h3>CattyMan</h3>
+          <a href="" class="des">Set trứng gà cosplay lông mèo một nhúm</a>
+          <div class="cost">
+            <p>50.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d8.png" class="i-sp" alt="" />
+          <h3>Fofos</h3>
+          <a href="" class="des"
+            >Robot hiện đại thông minh, kết nối camera trực tiếp bằng sóng.</a
+          >
+          <div class="cost">
+            <p>703.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d9.png" class="i-sp" alt="" />
+          <h3>Paddy</h3>
+          <a href="" class="des"
+            >Cá ươn mắc cạn bằng len hàng Việt chất lượng cao</a
+          >
+          <div class="cost">
+            <p>299.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d10.png" class="i-sp" alt="" />
+          <h3>LaPaw</h3>
+          <a href="" class="des">Lật đật nhựa cùng chiếc đèn lồng tương tác</a>
+          <div class="cost">
+            <p>760.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d11.png" class="i-sp" alt="" />
+          <h3>Piddy</h3>
+          <a href="" class="des">Nấm vừa độc vừa cô đơn như chủ Pet độc thân</a>
+          <div class="cost">
+            <p>90.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d12.png" class="i-sp" alt="" />
+          <h3>CattyMan</h3>
+          <a href="" class="des"
+            >Gậy phép Harry Potter dành cho tình yêu (không bán lẻ cho thú cưng
+            ế)</a
+          >
+          <div class="cost">
+            <p>520.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d13.png" class="i-sp" alt="" />
+          <h3>Fofos</h3>
+          <a href="" class="des"
+            >Bộ gãy ngứa cho mèo bị ghẻ hình dứa siêu đáng yêu</a
+          >
+          <div class="cost">
+            <p>199.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+        <div class="food-item">
+          <a href=""><i class="bx bx-heart"></i></a>
+          <img src="/IMG/d14.png" class="i-sp" alt="" />
+          <h3>Caty</h3>
+          <a href="" class="des">Combo đồ tổ chức sinh nhật cho Hoàng Thượng</a>
+          <div class="cost">
+            <p>300.000đ</p>
+            <a href="">Thêm</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="contact" id="contact" data-group="contact">
+      <h1>LIÊN HỆ</h1>
+      <p>
+        Chúng tôi cam kết cung cấp thức ăn cho thú cưng với nguồn gốc <br />rõ
+        ràng, an toàn và chất lượng. Mỗi sản phẩm đều được chọn lọc kỹ lưỡng,
+        đảm bảo sức khỏe cho thú cưng của bạn.<br />
+        Mọi thắc mắc xin vui lòng liên hệ với chúng tôi, CPK8 luôn sẵn lòng phục
+        vụ quý khách.
+      </p>
+      <div class="icons-mxh">
+        <a href=""><i class="bx bxl-instagram"></i></a>
+        <a href=""><i class="bx bxl-facebook"></i></a>
+        <a href=""><i class="bx bxl-tiktok"></i></a>
+        <a href=""><i class="bx bxl-google"></i></a>
+        <a href=""><i class="bx bxl-gmail"></i></a>
+      </div>
+      <div class="adr">
+        <a href=""><i class="bx bxs-map"></i> Địa chỉ</a>
+        <a href=""><i class="bx bx-mobile"></i> (+84) 7244 7244</a>
+      </div>
+    </footer>
+  </body>
+  <script src="/JS/cart.js"></script>
+  <script src="/JS/script.js"></script>
+  <script src="/JS/store.js"></script>
+</html>
